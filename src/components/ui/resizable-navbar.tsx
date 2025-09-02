@@ -10,6 +10,9 @@ import {
 
 import React, { useRef, useState } from "react";
 
+const NavbarVisibleContext = React.createContext<boolean>(false);
+export const useNavbarVisible = () => React.useContext(NavbarVisibleContext);
+
 
 interface NavbarProps {
   children?: React.ReactNode;
@@ -108,7 +111,9 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         className,
       )}
     >
-      {children}
+      <NavbarVisibleContext.Provider value={!!visible}>
+        {children}
+      </NavbarVisibleContext.Provider>
     </motion.div>
   );
 };

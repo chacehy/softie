@@ -3,19 +3,26 @@ import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface InteractiveHoverButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "default" | "white" | "whiteSolid";
+}
 
 export const InteractiveHoverButton = React.forwardRef<
   HTMLButtonElement,
   InteractiveHoverButtonProps
->(({ children, className, ...props }, ref) => {
+>(({ children, className, variant = "default", ...props }, ref) => {
+  const base = "group relative w-auto cursor-pointer overflow-hidden rounded-full p-2 px-6 text-center font-semibold transition-all duration-300";
+  const variants = {
+    default:
+      "bg-background border border-border",
+      white: "bg-white/30 text-black border border-transparent group-hover:border-black backdrop-blur-md backdrop-saturate-150 text-white",
+      whiteSolid: "bg-white text-black border border-transparent group-hover:border-black",
+  } as const;
+
   return (
     <button
       ref={ref}
-      className={cn(
-        "group relative w-auto cursor-pointer overflow-hidden rounded-full border bg-background p-2 px-6 text-center font-semibold",
-        className,
-      )}
+      className={cn(base, variants[variant], className)}
       {...props}
     >
       <div className="flex items-center gap-2">
@@ -24,7 +31,7 @@ export const InteractiveHoverButton = React.forwardRef<
           {children}
         </span>
       </div>
-      <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-primary-foreground opacity-0 transition-all duration-300 group-hover:-translate-x-5 group-hover:opacity-100">
+      <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:-translate-x-5 group-hover:opacity-100">
         <span>{children}</span>
         <ArrowRight />
       </div>

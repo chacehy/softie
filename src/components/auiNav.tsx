@@ -9,11 +9,13 @@ import {
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
+  useNavbarVisible,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
  import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 export function NavbarDemo({ className }: { className?: string }) {
+  const visible = useNavbarVisible();
   const navItems = [
     {
       name: "Solutions",
@@ -39,7 +41,11 @@ export function NavbarDemo({ className }: { className?: string }) {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <InteractiveHoverButton text="Contact Us">Contact Us</InteractiveHoverButton>
+            <InteractiveHoverButton
+              variant={visible ? "white" : "whiteSolid"}
+            >
+              Contact Us
+            </InteractiveHoverButton>
           </div>
         </NavBody>
  
