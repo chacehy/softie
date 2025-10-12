@@ -38,9 +38,10 @@ const Hero = () => {
         squaresClassName="hover:fill-purple-500"
       ></InteractiveGridPattern>
       
-        <div className="z-50 relative h-[350px] w-full overflow-hidden pointer-events-none">
+      {/* <div className="z-50 relative h-[350px] w-full overflow-hidden pointer-events-none">
           <VideoText src="/texteffect.mp4" className="font-[sora]">SOFTIE</VideoText>
-        </div>
+        </div> */}
+        <AuroraText className="font-[Sora] font-bold text-7xl">SOFTIE</AuroraText>
         <h2>where</h2>
     </div>
   );
