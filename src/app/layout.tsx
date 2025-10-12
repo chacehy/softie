@@ -1,7 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Sora, Nunito, Inter, DM_Sans } from "next/font/google";
 import "./globals.css";
 
+const dmsans = DM_Sans({
+  variable: "--dm-sans"
+})
+
+const inter = Inter ({
+  variable :'--font-inter'
+})
+
+const nunito = Nunito({
+  variable :'--font-nunito'
+})
+
+const sora = Sora({
+  variable : "--font-sora",
+
+})
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${sora.variable} ${nunito.variable} antialiased`}
       >
         {children}
       </body>

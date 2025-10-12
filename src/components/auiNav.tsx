@@ -9,46 +9,40 @@ import {
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
-  useNavbarVisible,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
- import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
-export function NavbarDemo({ className }: { className?: string }) {
-  const visible = useNavbarVisible();
+
+export function NavbarDemo() {
   const navItems = [
     {
-      name: "Solutions",
-      link: "#solutions",
+      name: "Features",
+      link: "#features",
     },
     {
-      name: "Our Projects",
-      link: "#projects",
+      name: "Pricing",
+      link: "#pricing",
     },
     {
       name: "Contact",
       link: "#contact",
     },
   ];
- 
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
- 
+
   return (
-    <div className={cn("relative w-full pointer-events-none", className)}>
-      <Navbar className="pointer-events-auto fixed inset-x-0 top-0 z-50">
+    <div className="relative w-full">
+      <Navbar>
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <InteractiveHoverButton
-              variant={visible ? "white" : "whiteSolid"}
-            >
-              Contact Us
-            </InteractiveHoverButton>
+            <NavbarButton variant="secondary">Login</NavbarButton>
+            <NavbarButton variant="primary">Book a call</NavbarButton>
           </div>
         </NavBody>
- 
+
         {/* Mobile Navigation */}
         <MobileNav>
           <MobileNavHeader>
@@ -58,7 +52,7 @@ export function NavbarDemo({ className }: { className?: string }) {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             />
           </MobileNavHeader>
- 
+
           <MobileNavMenu
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
@@ -68,7 +62,7 @@ export function NavbarDemo({ className }: { className?: string }) {
                 key={`mobile-link-${idx}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300"
+                className="relative text-gray-600 hover:text-gray-800"
               >
                 <span className="block">{item.name}</span>
               </a>
@@ -92,10 +86,6 @@ export function NavbarDemo({ className }: { className?: string }) {
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-
- 
-      {/* Navbar */}
     </div>
   );
 }
- 
