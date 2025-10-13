@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <div
       id="hero"
-      className="relative min-h-[screen] w-full overflow-hidden flex flex-col items-center justify-center pt-24 bg-white sm:min-h-[screen]"
+      className="relative min-h-[90vh] w-full overflow-hidden flex flex-col items-center justify-center pt-24 bg-white"
     >
       <NavbarDemo />
       
@@ -33,12 +33,8 @@ const Hero = () => {
         <div className="mb-8">
           <AuroraText 
             className="font-sora font-bold text-7xl md:text-8xl lg:text-9xl py-6"
-            style={{
-              background: 'linear-gradient(90deg, #8260AD 0%, #3A7BFF 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}
+            
+            
           >
             SOFTIE
           </AuroraText>
@@ -67,8 +63,8 @@ const Hero = () => {
               boxShadow: '0 8px 32px rgba(130, 96, 173, 0.3)'
             }}
           >
-            Let's build something
-          </button>
+            Let&apos;s build something
+          </button>   
           
           <button 
             className="px-8 py-4 rounded-full font-inter font-semibold text-gray-700 border-2 border-gray-300 hover:border-[#8260AD] hover:text-[#8260AD] transition-all duration-300 hover:scale-105 bg-white/80 backdrop-blur-sm"

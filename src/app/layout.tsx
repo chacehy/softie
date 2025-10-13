@@ -1,33 +1,41 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Sora, Nunito, Inter, DM_Sans } from "next/font/google";
+import { Sora, Nunito, Inter, DM_Sans } from "next/font/google";
 import "./globals.css";
 
 const dmsans = DM_Sans({
-  variable: "--dm-sans"
+  variable: "--dm-sans",
+  display: 'swap',
 })
 
 const inter = Inter ({
-  variable :'--font-inter'
+  variable :'--font-inter',
+  display: 'swap',
 })
 
 const nunito = Nunito({
-  variable :'--font-nunito'
+  variable :'--font-nunito',
+  display: 'swap',
 })
 
 const sora = Sora({
   variable : "--font-sora",
-
+  display: 'swap',
 })
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// Temporarily commented out Geist fonts due to Turbopack compatibility issues
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+//   display: 'swap',
+//   fallback: ['system-ui', 'arial'],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+//   display: 'swap',
+//   fallback: ['ui-monospace', 'monospace'],
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -42,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${sora.variable} ${nunito.variable} antialiased`}
+        className={`${sora.variable} ${nunito.variable} ${inter.variable} ${dmsans.variable} antialiased`}
       >
         {children}
       </body>

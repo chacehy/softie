@@ -3,6 +3,18 @@
 @import "tailwindcss";
 @import "tw-animate";
 
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Offset for fixed navbar */
+}
+
+/* Custom smooth scroll with easing */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
 
 
 @theme inline {
