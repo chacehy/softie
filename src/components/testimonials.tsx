@@ -69,7 +69,7 @@ const AnimatedTestimonialCard = ({
           whileHover={{ color: "#8260AD" }}
           transition={{ duration: 0.2 }}
         >
-          "{testimonial}"
+          &ldquo;{testimonial}&rdquo;
         </motion.p>
       </div>
     </motion.div>
@@ -103,7 +103,7 @@ export function Testimonials() {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            Don't just take our word for it. Here's what our clients have to say about working with us.
+            Don&apos;t just take our word for it. Here&apos;s what our clients have to say about working with us.
           </motion.p>
         </motion.div>
 
