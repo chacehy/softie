@@ -1,42 +1,44 @@
+"use client";
+
 import { cn } from "@/lib/utils"
 import { Marquee } from "@/components/ui/marquee"
 
 const reviews = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
+    name: "Sarah Chen",
+    username: "@sarahchen",
+    body: "Professional, friendly, and delivered exactly what we needed.",
+    img: "https://avatar.vercel.sh/sarah",
   },
   {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://avatar.vercel.sh/jill",
+    name: "Mike Rodriguez",
+    username: "@mikerod",
+    body: "Amazing communication throughout the project. Highly recommend!",
+    img: "https://avatar.vercel.sh/mike",
   },
   {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/john",
+    name: "Emma Thompson",
+    username: "@emmathompson",
+    body: "Exceeded our expectations. Great attention to detail.",
+    img: "https://avatar.vercel.sh/emma",
   },
   {
-    name: "Jane",
-    username: "@jane",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jane",
+    name: "Alex Kumar",
+    username: "@alexkumar",
+    body: "Reliable and professional. Made our vision come to life.",
+    img: "https://avatar.vercel.sh/alex",
   },
   {
-    name: "Jenny",
-    username: "@jenny",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jenny",
+    name: "Lisa Park",
+    username: "@lisapark",
+    body: "Friendly team, great results. Our customers love it!",
+    img: "https://avatar.vercel.sh/lisa",
   },
   {
-    name: "James",
-    username: "@james",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/james",
+    name: "David Kim",
+    username: "@davidkim",
+    body: "Outstanding service and support. Will definitely work again.",
+    img: "https://avatar.vercel.sh/david",
   },
 ]
 
@@ -54,14 +56,27 @@ const ReviewCard = ({
   username: string
   body: string
 }) => {
+  const scrollToTestimonials = () => {
+    const testimonialsSection = document.getElementById('testimonials');
+    if (testimonialsSection) {
+      testimonialsSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <figure
+      onClick={scrollToTestimonials}
       className={cn(
         "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+        // hover effects
+        "transition-all duration-300 hover:scale-105 hover:shadow-lg"
       )}
     >
       <div className="flex flex-row items-center gap-2">
@@ -80,7 +95,7 @@ const ReviewCard = ({
 
 export function MarqueeDemo() {
   return (
-    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-gray-100/50 py-12">
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
@@ -91,8 +106,8 @@ export function MarqueeDemo() {
           <ReviewCard key={review.username} {...review} />
         ))}
       </Marquee>
-      <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
-      <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
+      <div className="from-gray-50/30 pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
+      <div className="from-gray-50/30 pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
     </div>
   )
 }

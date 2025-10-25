@@ -16,7 +16,6 @@ html {
   }
 }
 
-
 @theme inline {
   --animate-gradient: gradient 8s linear infinite;
 
@@ -91,5 +90,50 @@ html {
     75% {
       transform: translateY(-18px) translateX(10px) rotate(270deg);
     }
+  }
+
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes marquee-reverse {
+    from {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+}
+
+/* Custom marquee styles for shadcn compatibility */
+@layer utilities {
+  .animate-marquee {
+    animation: marquee var(--duration) infinite linear;
+  }
+  
+  .animate-marquee-reverse {
+    animation: marquee-reverse var(--duration) infinite linear;
+  }
+  
+  .animate-marquee-vertical {
+    animation: marquee-vertical var(--duration) linear infinite;
   }
 }

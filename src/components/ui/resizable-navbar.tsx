@@ -116,6 +116,18 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
+    e.preventDefault();
+    const element = document.querySelector(link);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    onItemClick?.();
+  };
+
   return (
     <motion.div
       onMouseLeave={() => setHovered(null)}
@@ -127,8 +139,8 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       {items.map((item, idx) => (
         <a
           onMouseEnter={() => setHovered(idx)}
-          onClick={onItemClick}
-          className="relative px-4 py-2 text-gray-600 hover:text-gray-800"
+          onClick={(e) => handleClick(e, item.link)}
+          className="relative px-4 py-2 text-gray-600 hover:text-gray-800 cursor-pointer"
           key={`link-${idx}`}
           href={item.link}
         >

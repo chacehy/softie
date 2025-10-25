@@ -15,20 +15,35 @@ import { useState } from "react";
 export function NavbarDemo() {
   const navItems = [
     {
-      name: "Services",
-      link: "#services",
-    },
-    {
       name: "Testimonials",
       link: "#testimonials",
+    },
+    {
+      name: "Services",
+      link: "#services",
     },
     {
       name: "Pricing",
       link: "#pricing",
     },
+    {
+      name: "Contact",
+      link: "#contact",
+    },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleNavClick = (link: string) => {
+    const element = document.querySelector(link);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <div className="relative w-full">
@@ -36,9 +51,14 @@ export function NavbarDemo() {
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
-          <NavItems items={navItems} />
+          <NavItems items={navItems} onItemClick={() => {}} />
           <div className="flex items-center gap-4">
-            <NavbarButton variant="primary">Book a call</NavbarButton>
+            <NavbarButton 
+              variant="primary"
+              onClick={() => handleNavClick("#contact")}
+            >
+              Book a call
+            </NavbarButton>
           </div>
         </NavBody>
 
@@ -60,15 +80,21 @@ export function NavbarDemo() {
               <a
                 key={`mobile-link-${idx}`}
                 href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-gray-600 hover:text-gray-800"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.link);
+                }}
+                className="relative text-gray-600 hover:text-gray-800 cursor-pointer"
               >
                 <span className="block">{item.name}</span>
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  handleNavClick("#contact");
+                  setIsMobileMenuOpen(false);
+                }}
                 variant="primary"
                 className="w-full"
               >
