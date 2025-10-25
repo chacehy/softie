@@ -55,7 +55,7 @@ const Hero = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-16">
+        <div className="flex flex-col sm:flex-row gap-4 mb-16 px-8 sm:px-0">
           <button 
             className="px-8 py-4 rounded-full font-inter font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
             style={{
