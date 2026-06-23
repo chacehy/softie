@@ -1,12 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 @import "tailwindcss";
 @import "tw-animate";
+
+/* ── Softie brand tokens ──────────────────────────────── */
+:root {
+  --brand: #7c3aed;          /* vivid violet */
+  --brand-soft: #ede9fe;     /* violet-100 */
+  --accent: #2563eb;         /* electric blue */
+  --ink: #0e0e0e;            /* soft black */
+  --surface: #fbfafc;        /* canvas */
+  --surface-2: #f5f3ff;      /* violet-50 */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
 
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px; /* Offset for fixed navbar */
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Font utilities driven by next/font CSS variables */
+@layer utilities {
+  .font-sora {
+    font-family: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  }
+  .font-inter {
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  }
+  /* Brand-tinted, ultra-diffuse elevation (no harsh black shadows) */
+  .shadow-soft {
+    box-shadow: 0 1px 2px rgba(124, 58, 237, 0.07),
+      0 12px 32px -12px rgba(124, 58, 237, 0.24);
+  }
+  .shadow-soft-lg {
+    box-shadow: 0 1px 1px rgba(124, 58, 237, 0.06),
+      0 24px 64px -20px rgba(124, 58, 237, 0.32);
+  }
+  /* Concentric "double-bezel" inner highlight */
+  .bezel-inner {
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7),
+      inset 0 0 0 1px rgba(124, 58, 237, 0.07);
+  }
+  .text-gradient-brand {
+    background-image: linear-gradient(100deg, #7c3aed 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* Fixed, performance-safe film-grain overlay */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("/noise.webp");
+  background-size: 220px;
+  mix-blend-mode: soft-light;
 }
 
 /* Custom smooth scroll with easing */
@@ -46,6 +102,18 @@ html {
   --animate-float-slow: float-slow 8s ease-in-out infinite;
   --animate-float-medium: float-medium 6s ease-in-out infinite;
   --animate-float-fast: float-fast 4s ease-in-out infinite;
+
+  --animate-drift-a: drift-a 22s ease-in-out infinite;
+  --animate-drift-b: drift-b 26s ease-in-out infinite;
+
+  @keyframes drift-a {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(6%, -4%, 0) scale(1.12); }
+  }
+  @keyframes drift-b {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+    50% { transform: translate3d(-5%, 5%, 0) scale(0.95); }
+  }
 
   @keyframes float-slow {
     0%, 100% {

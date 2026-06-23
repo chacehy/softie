@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
+import { CheckCircle2, AlertCircle, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import emailjs from "@emailjs/browser";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function ContactUs() {
   const [formData, setFormData] = useState({
@@ -86,33 +89,33 @@ export function ContactUs() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-[#F7F5FA] to-[#DDCCF5]/30">
-      <div className="max-w-7xl mx-auto px-4">
-        <motion.div 
-          className="text-center mb-16"
+    <section
+      id="contact"
+      className="relative overflow-hidden bg-gradient-to-b from-[#FBFAFC] to-[#EDE9FE]/40 py-28 md:py-32"
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 right-0 h-[28rem] w-[28rem] translate-x-1/3 translate-y-1/4 rounded-full bg-[radial-gradient(circle_at_center,#2563EB_0%,transparent_65%)] opacity-15"
+      />
+      <div className="relative mx-auto max-w-7xl px-4">
+        <motion.div
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: EASE }}
           viewport={{ once: true }}
         >
-          <motion.h2 
-            className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#8260AD] to-[#3A7BFF] bg-clip-text text-transparent"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            Contact Us
-          </motion.h2>
-          <motion.p 
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            Ready to bring your ideas to life? Let&apos;s chat about your next project.
-          </motion.p>
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#7C3AED]/15 bg-white/70 px-4 py-1.5 font-inter text-[11px] font-medium uppercase tracking-[0.22em] text-[#5b4a73] backdrop-blur-sm shadow-soft">
+            Let&apos;s talk
+          </span>
+          <h2 className="mx-auto mt-6 max-w-2xl font-sora text-4xl font-bold leading-[1.05] tracking-tight text-[#161122] md:text-5xl">
+            Got an idea? Let&apos;s make it{" "}
+            <span className="text-gradient-brand">real.</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl font-inter text-base leading-relaxed text-[#5b5566]">
+            Tell us what you&apos;re building. We reply within 24 hours — no
+            sales script, just a real conversation.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -151,7 +154,7 @@ export function ContactUs() {
                   <button
                     className={cn(
                       "flex items-center space-x-2 px-6 py-3 rounded-full",
-                      "bg-gradient-to-r from-[#3A7BFF] to-[#8260AD] text-white",
+                      "bg-gradient-to-r from-[#2563EB] to-[#7C3AED] text-white",
                       "hover:shadow-lg hover:scale-105 transition-all duration-300",
                       "font-medium cursor-pointer border-0 relative z-50",
                       isCalling && "opacity-75 cursor-not-allowed"
@@ -162,10 +165,8 @@ export function ContactUs() {
                       handlePhoneCall(e);
                     }}
                   >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                    </svg>
-                    <span>{isCalling ? "Calling..." : "0770950240"}</span>
+                    <Phone className="h-5 w-5" strokeWidth={1.75} />
+                    <span>{isCalling ? "Calling..." : "0770 95 02 40"}</span>
                   </button>
                   
                   <span className="text-sm text-gray-500">or</span>
@@ -181,14 +182,14 @@ export function ContactUs() {
 
               {/* Softie brand elements */}
               <motion.div 
-                className="mt-8 p-6 rounded-xl bg-white/50 backdrop-blur-sm border border-[#DDCCF5]/50"
+                className="mt-8 p-6 rounded-xl bg-white/50 backdrop-blur-sm border border-[#EDE9FE]/50"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
                 <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#8260AD] to-[#3A7BFF] flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#7C3AED] to-[#2563EB] flex items-center justify-center">
                     <span className="text-white text-sm font-bold">S</span>
                   </div>
                   <div>
@@ -202,13 +203,14 @@ export function ContactUs() {
 
           {/* Right side - Contact form */}
           <motion.div
-            className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100"
+            className="rounded-[2rem] border border-[#7C3AED]/10 bg-white/70 p-2 shadow-soft-lg backdrop-blur-sm"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <div className="rounded-[calc(2rem-0.5rem)] bg-white p-7 bezel-inner md:p-9">
+            <h3 className="mb-6 font-sora text-2xl font-bold text-[#161122]">
               Send us a message
             </h3>
             
@@ -226,7 +228,7 @@ export function ContactUs() {
                   required
                   className={cn(
                     "w-full px-4 py-3 rounded-xl border border-gray-200",
-                    "focus:outline-none focus:ring-2 focus:ring-[#8260AD]/20 focus:border-[#8260AD]",
+                    "focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20 focus:border-[#7C3AED]",
                     "transition-all duration-300 bg-white/80 backdrop-blur-sm"
                   )}
                   placeholder="Enter your name"
@@ -247,7 +249,7 @@ export function ContactUs() {
                   required
                   className={cn(
                     "w-full px-4 py-3 rounded-xl border border-gray-200",
-                    "focus:outline-none focus:ring-2 focus:ring-[#8260AD]/20 focus:border-[#8260AD]",
+                    "focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20 focus:border-[#7C3AED]",
                     "transition-all duration-300 bg-white/80 backdrop-blur-sm"
                   )}
                   placeholder="Enter your email address"
@@ -268,7 +270,7 @@ export function ContactUs() {
                   rows={5}
                   className={cn(
                     "w-full px-4 py-3 rounded-xl border border-gray-200",
-                    "focus:outline-none focus:ring-2 focus:ring-[#8260AD]/20 focus:border-[#8260AD]",
+                    "focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20 focus:border-[#7C3AED]",
                     "transition-all duration-300 bg-white/80 backdrop-blur-sm resize-none"
                   )}
                   placeholder="Tell us about your project, ideas, or just say hello..."
@@ -281,7 +283,7 @@ export function ContactUs() {
                 disabled={isSubmitting}
                 className={cn(
                   "w-full py-4 px-6 rounded-xl font-semibold text-white",
-                  "bg-gradient-to-r from-[#8260AD] to-[#3A7BFF]",
+                  "bg-gradient-to-r from-[#7C3AED] to-[#2563EB]",
                   "hover:shadow-lg hover:scale-105 transition-all duration-300",
                   "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100",
                   "relative overflow-hidden"
@@ -304,9 +306,10 @@ export function ContactUs() {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 rounded-xl bg-green-50 border border-green-200 text-green-800 text-sm"
+                  className="flex items-center gap-2.5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800"
                 >
-                  ✅ Message sent successfully! We&apos;ll get back to you soon.
+                  <CheckCircle2 className="h-5 w-5 flex-shrink-0" strokeWidth={1.75} />
+                  Message sent. We&apos;ll get back to you within 24 hours.
                 </motion.div>
               )}
 
@@ -314,12 +317,14 @@ export function ContactUs() {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-sm"
+                  className="flex items-center gap-2.5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800"
                 >
-                  ❌ Something went wrong. Please try again or call us directly.
+                  <AlertCircle className="h-5 w-5 flex-shrink-0" strokeWidth={1.75} />
+                  Something went wrong. Please try again or call us directly.
                 </motion.div>
               )}
             </form>
+            </div>
           </motion.div>
         </div>
       </div>

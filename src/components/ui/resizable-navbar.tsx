@@ -248,14 +248,17 @@ export const NavbarLogo = () => {
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-3 px-2 py-1 text-sm font-normal"
     >
-      <div 
+      <div
         className="w-8 h-8 rounded-full flex items-center justify-center text-white font-sora font-bold text-sm"
         style={{
-          background: 'linear-gradient(90deg, #8260AD 0%, #3A7BFF 100%)'
+          background: "linear-gradient(90deg, #7C3AED 0%, #2563EB 100%)",
         }}
       >
         S
       </div>
+      <span className="font-sora text-lg font-bold tracking-tight text-[#161122]">
+        Softie
+      </span>
     </a>
   );
 };
@@ -282,7 +285,7 @@ export const NavbarButton = ({
 
   const variantStyles = {
     primary: "text-white font-semibold rounded-full transition-all duration-300 hover:scale-105",
-    secondary: "bg-transparent shadow-none text-gray-600 hover:text-gray-800 border border-gray-300 hover:border-[#8260AD] rounded-full transition-all duration-300 hover:scale-105",
+    secondary: "bg-transparent shadow-none text-gray-600 hover:text-gray-800 border border-gray-300 hover:border-[#7C3AED] rounded-full transition-all duration-300 hover:scale-105",
     dark: "bg-black text-white shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
     gradient:
       "bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]",
@@ -291,8 +294,8 @@ export const NavbarButton = ({
   const getButtonStyle = () => {
     if (variant === 'primary') {
       return {
-        background: 'linear-gradient(90deg, #8260AD 0%, #3A7BFF 100%)',
-        boxShadow: '0 8px 32px rgba(130, 96, 173, 0.3)'
+        background: 'linear-gradient(90deg, #7C3AED 0%, #2563EB 100%)',
+        boxShadow: '0 8px 32px rgba(124, 58, 237, 0.35)'
       };
     }
     return {};

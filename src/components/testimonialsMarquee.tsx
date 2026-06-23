@@ -70,44 +70,50 @@ const ReviewCard = ({
     <figure
       onClick={scrollToTestimonials}
       className={cn(
-        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
-        // light styles
-        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
-        // hover effects
-        "transition-all duration-300 hover:scale-105 hover:shadow-lg"
+        "relative h-full w-72 cursor-pointer overflow-hidden rounded-2xl border p-5",
+        "border-[#7C3AED]/10 bg-white/70 backdrop-blur-sm shadow-soft",
+        "transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-soft-lg"
       )}
     >
-      <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+      <div className="flex flex-row items-center gap-3">
+        <img
+          className="h-9 w-9 rounded-xl ring-1 ring-[#7C3AED]/10"
+          width="36"
+          height="36"
+          alt={name}
+          src={img}
+        />
         <div className="flex flex-col">
-          <figcaption className="text-sm font-medium text-gray-600">
+          <figcaption className="font-sora text-sm font-semibold text-[#161122]">
             {name}
           </figcaption>
-          <p className="text-xs font-medium text-gray-500">{username}</p>
+          <p className="font-inter text-xs font-medium text-[#9a93a8]">
+            {username}
+          </p>
         </div>
       </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
+      <blockquote className="mt-3 font-inter text-sm leading-relaxed text-[#5b5566]">
+        {body}
+      </blockquote>
     </figure>
   )
 }
 
 export function MarqueeDemo() {
   return (
-    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-gray-100/50 py-12">
-      <Marquee pauseOnHover className="[--duration:20s]">
+    <div className="relative flex w-full flex-col items-center justify-center gap-4 overflow-hidden border-y border-[#7C3AED]/8 bg-[#F5F3FF]/60 py-14">
+      <Marquee pauseOnHover className="[--duration:28s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
         ))}
       </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
+      <Marquee reverse pauseOnHover className="[--duration:28s]">
         {secondRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
         ))}
       </Marquee>
-      <div className="from-gray-50/30 pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
-      <div className="from-gray-50/30 pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-[#F5F3FF] to-transparent"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l from-[#F5F3FF] to-transparent"></div>
     </div>
   )
 }
