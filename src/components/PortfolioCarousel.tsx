@@ -24,37 +24,37 @@ const projects: Project[] = [
     name: "Conquête Voyages",
     tagline: "Premium travel agency for international trips & Omra pilgrimages",
     screenshot: "/screenshots/Screen Shot 2026-06-28 at 13.33.12.png",
-    siteUrl: "#",
+    siteUrl: "https://conquete.vercel.app",
   },
   {
     name: "Wellza",
     tagline: "Pharmacy delivery platform for supplements & health products",
     screenshot: "/screenshots/Screen Shot 2026-06-28 at 14.21.23.png",
-    siteUrl: "#",
+    siteUrl: "https://parapharm.vercel.app",
   },
   {
     name: "Crearena",
     tagline: "Startup business accelerator powering pre-seed ventures across 5 sectors",
     screenshot: "/screenshots/Screen Shot 2026-06-28 at 14.22.14.png",
-    siteUrl: "#",
+    siteUrl: "https://crearena.vercel.app",
   },
   {
     name: "CastingConnect",
     tagline: "Talent discovery platform for Algeria's creative industry",
     screenshot: "/screenshots/Screen Shot 2026-06-28 at 15.39.32.png",
-    siteUrl: "#",
+    siteUrl: "https://www.castinglab.space",
   },
   {
     name: "Secure Vaults",
     tagline: "Enterprise zero-knowledge secrets management with end-to-end encryption",
     screenshot: "/screenshots/Screen Shot 2026-06-28 at 15.40.38.png",
-    siteUrl: "#",
+    siteUrl: "https://dashlane-crypto-vault.vercel.app",
   },
   {
     name: "Hikayatooki",
     tagline: "Luxury floral art e-commerce for weddings & ceremonies",
     screenshot: "/screenshots/Screen Shot 2026-06-28 at 15.41.29.png",
-    siteUrl: "#",
+    siteUrl: "https://hikayatuki.vercel.app",
   },
 ];
 
