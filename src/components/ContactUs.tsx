@@ -41,7 +41,7 @@ export function ContactUs() {
         from_name: formData.name,
         from_email: formData.email,
         message: formData.message,
-        to_email: "henna.abdelbasset@gmail.com"
+        to_email: "hello@softie.cc"
       };
 
       console.log("Sending email with params:", templateParams);
