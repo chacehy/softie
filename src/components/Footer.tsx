@@ -76,11 +76,11 @@ export function Footer() {
             </h4>
             <div className="space-y-3 font-inter text-sm">
               <a
-                href="mailto:henna.abdelbasset@gmail.com"
+                href="mailto:hello@softie.cc"
                 className="flex items-center gap-2.5 text-white/65 transition-colors hover:text-white"
               >
                 <Mail className="h-4 w-4 text-[#9b8cc4]" strokeWidth={1.75} />
-                henna.abdelbasset@gmail.com
+                hello@softie.cc
               </a>
               <a
                 href="tel:+213770950240"
