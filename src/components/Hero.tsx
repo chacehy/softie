@@ -47,8 +47,8 @@ const Hero = () => {
       <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
         {/* Eyebrow */}
         <motion.div
-          initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: EASE }}
           className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#7C3AED]/20 bg-white/70 px-4 py-1.5 backdrop-blur-sm shadow-soft"
         >
@@ -65,12 +65,20 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: EASE, delay: 0.05 }}
           className="mb-6"
         >
-          <AuroraText
-            className="font-sora font-extrabold tracking-tighter text-7xl md:text-8xl lg:text-9xl leading-[0.92] py-2"
-            colors={["#7C3AED", "#2563EB", "#A855F7", "#7C3AED"]}
-          >
-            SOFTIE
-          </AuroraText>
+          <div className="flex flex-col items-center leading-[0.92] py-2">
+            <AuroraText
+              className="font-sora font-extrabold tracking-tighter text-7xl md:text-8xl lg:text-9xl"
+              colors={["#7C3AED", "#2563EB", "#A855F7", "#7C3AED"]}
+            >
+              YOUR IDEA,
+            </AuroraText>
+            <AuroraText
+              className="font-sora font-extrabold tracking-tighter text-7xl md:text-8xl lg:text-9xl"
+              colors={["#7C3AED", "#2563EB", "#A855F7", "#7C3AED"]}
+            >
+              SHIPPED
+            </AuroraText>
+          </div>
         </motion.div>
 
         {/* Rotating subtitle */}
@@ -136,7 +144,7 @@ const Hero = () => {
           className="mt-12 flex items-center gap-4"
         >
           <div className="flex -space-x-3">
-            {["Sarah", "Mike", "Emma", "Alex"].map((seed) => (
+            {["Youcef", "Amira", "Karim", "Nadia"].map((seed) => (
               <img
                 key={seed}
                 src={`https://avatar.vercel.sh/${seed}`}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, Inter } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -60,7 +61,7 @@ export default function RootLayout({
         className={`${sora.variable} ${inter.variable} font-inter antialiased bg-[#FBFAFC] text-[#0E0E0E] selection:bg-[#DDCCF5] selection:text-[#3a2a55]`}
       >
         <div className="grain-overlay" aria-hidden />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

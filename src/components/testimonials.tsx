@@ -16,64 +16,65 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Sarah Chen",
-    role: "CEO, TechStart",
-    initial: "S",
+    name: "Youcef Benali",
+    role: "CEO, Zidni",
+    initial: "Y",
     testimonial:
-      "Professional, friendly, and delivered exactly what we needed. The team exceeded our expectations with their attention to detail and communication throughout the project.",
+      "Franchement je m'attendais pas à ce niveau. On a eu des retours clients positifs dès le premier jour du lancement. Ils ont su cerner exactement ce qu'on voulait sans qu'on ait besoin de tout expliquer trois fois.",
     gradient: "from-[#7C3AED] to-[#2563EB]",
   },
   {
-    name: "Mike Rodriguez",
-    role: "Founder, DigitalCo",
-    initial: "M",
+    name: "Amira Hadjadj",
+    role: "Founder, Noor",
+    initial: "A",
     testimonial:
-      "Amazing communication throughout the project. They made our vision come to life with clean, efficient solutions — and shipped ahead of schedule.",
+      "Honestly didn't expect it to come together this fast. We were running behind on our launch timeline and they just… handled it. No drama, no excuses. Just results.",
     gradient: "from-[#2563EB] to-[#5B21B6]",
   },
   {
-    name: "Emma Thompson",
-    role: "CTO, InnovateLab",
-    initial: "E",
+    name: "Karim Messaoud",
+    role: "CTO, Darna",
+    initial: "K",
     testimonial:
-      "Exceeded our expectations. Great attention to detail, and the final product was exactly what we envisioned. We'll definitely work with them again.",
+      "Ce qui m'a bluffé c'est la rapidité sans sacrifier la qualité. Le code était propre, bien structuré, maintenable — chose vraiment rare. On repart avec eux sur le prochain projet sans hésiter.",
     gradient: "from-[#5B21B6] to-[#7C3AED]",
   },
   {
-    name: "Alex Kumar",
-    role: "Product Manager, ScaleUp",
-    initial: "A",
+    name: "Nadia Boudiaf",
+    role: "Product Manager, Baraka",
+    initial: "N",
     testimonial:
-      "Reliable and genuinely thoughtful. They understood our requirements perfectly and delivered something our users absolutely love.",
+      "I've worked with a lot of dev teams and the communication here was in a different league. Every update was clear, no jargon, no guessing. Our users noticed the difference immediately.",
     gradient: "from-[#7C3AED] to-[#C471F5]",
   },
   {
-    name: "Lisa Park",
-    role: "Design Director, CreativeStudio",
-    initial: "L",
+    name: "Sofiane Rahmani",
+    role: "Design Director, Wakha Studio",
+    initial: "S",
     testimonial:
-      "Friendly team, great results. Our customers love the interface and the overall experience. The collaboration felt effortless from day one.",
+      "Honnêtement au début j'étais sceptique, on avait eu de mauvaises expériences avant. Mais là c'était vraiment différent — ils ont répondu à chaque question, même les petites. Le résultat dépasse ce qu'on avait imaginé.",
     gradient: "from-[#5a3f86] to-[#2563EB]",
   },
   {
-    name: "David Kim",
-    role: "CEO, FutureTech",
-    initial: "D",
+    name: "Lina Cherif",
+    role: "CEO, Raha",
+    initial: "L",
     testimonial:
-      "Outstanding service and support. They went above and beyond to make sure our launch went smoothly. Easily the best studio we've worked with.",
+      "We had a pretty vague brief to start with and they helped us shape it into something real. Felt less like hiring a vendor and more like having a co-founder for the build phase.",
     gradient: "from-[#2563EB] to-[#7C3AED]",
   },
 ];
 
 const TestimonialCard = ({ t, index }: { t: Testimonial; index: number }) => (
   <motion.figure
-    initial={{ opacity: 0, y: 26, filter: "blur(6px)" }}
-    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+    initial={{ opacity: 0, y: 26 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    whileHover={{ y: -6 }}
     viewport={{ once: true, margin: "-60px" }}
     transition={{ duration: 0.6, ease: EASE, delay: (index % 3) * 0.08 }}
     className={cn(
       "group relative flex flex-col rounded-[1.75rem] border border-[#7C3AED]/10 bg-white/80 p-7 backdrop-blur-sm shadow-soft",
-      "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:shadow-soft-lg"
+      "transition-[box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-soft-lg"
     )}
   >
     <Quote
@@ -92,21 +93,11 @@ const TestimonialCard = ({ t, index }: { t: Testimonial; index: number }) => (
       {t.testimonial}
     </blockquote>
 
-    <figcaption className="mt-6 flex items-center gap-3 border-t border-[#7C3AED]/8 pt-5">
-      <div
-        className={cn(
-          "grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br font-sora text-base font-bold text-white shadow-soft transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 group-hover:-rotate-3",
-          t.gradient
-        )}
-      >
-        {t.initial}
+    <figcaption className="mt-6 border-t border-[#7C3AED]/8 pt-5">
+      <div className="font-sora text-[15px] font-semibold text-[#161122]">
+        {t.name}
       </div>
-      <div>
-        <div className="font-sora text-[15px] font-semibold text-[#161122]">
-          {t.name}
-        </div>
-        <div className="font-inter text-sm text-[#6b6478]">{t.role}</div>
-      </div>
+      <div className="font-inter text-sm text-[#6b6478]">{t.role}</div>
     </figcaption>
   </motion.figure>
 );

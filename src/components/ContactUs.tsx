@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { CheckCircle2, AlertCircle, Phone } from "lucide-react";
+import { CheckCircle2, AlertCircle, Phone, MessageSquare, Clock, Rocket } from "lucide-react";
 import { cn } from "@/lib/utils";
 import emailjs from "@emailjs/browser";
 
@@ -180,22 +180,28 @@ export function ContactUs() {
                 </div>
               </motion.div>
 
-              {/* Softie brand elements */}
-              <motion.div 
-                className="mt-8 p-6 rounded-xl bg-white/50 backdrop-blur-sm border border-[#EDE9FE]/50"
+              {/* What happens next */}
+              <motion.div
+                className="mt-8 rounded-xl border border-[#EDE9FE]/60 bg-white/50 backdrop-blur-sm p-6 space-y-4"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#7C3AED] to-[#2563EB] flex items-center justify-center">
-                    <span className="text-white text-sm font-bold">S</span>
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900">Built with Softie</p>
-                    <p className="text-xs text-gray-500">Code made soft, experiences made delightful</p>
-                  </div>
+                <p className="font-sora text-sm font-semibold text-[#161122]">What happens next</p>
+                <div className="space-y-3">
+                  {[
+                    { icon: MessageSquare, text: "We read your message carefully — no auto-replies." },
+                    { icon: Clock,         text: "You hear back within 24 hours, usually sooner." },
+                    { icon: Rocket,        text: "We jump on a quick call and start shaping your idea." },
+                  ].map(({ icon: Icon, text }, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="mt-0.5 grid h-7 w-7 flex-shrink-0 place-items-center rounded-lg bg-gradient-to-br from-[#7C3AED] to-[#2563EB]">
+                        <Icon className="h-3.5 w-3.5 text-white" strokeWidth={2} />
+                      </div>
+                      <p className="font-inter text-sm leading-snug text-[#5b5566]">{text}</p>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
             </div>

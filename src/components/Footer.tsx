@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { motion } from "motion/react";
 import { Mail, Phone, ArrowUpRight } from "lucide-react";
 
@@ -14,6 +15,7 @@ const quickLinks = [
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const gradientId = useId();
 
   return (
     <footer className="relative z-10 overflow-hidden bg-[#0E0E0E] text-white">
@@ -33,17 +35,17 @@ export function Footer() {
             transition={{ duration: 0.6, ease: EASE }}
             className="space-y-4"
           >
-            <div className="flex items-center gap-2.5">
-              <div
-                className="grid h-8 w-8 place-items-center rounded-full font-sora text-sm font-bold text-white"
-                style={{ background: "linear-gradient(90deg,#7C3AED,#2563EB)" }}
-              >
-                S
-              </div>
-              <span className="font-sora text-xl font-bold tracking-tight">
-                Softie
-              </span>
-            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none" className="h-10 w-auto" aria-label="Softie">
+              <defs>
+                <linearGradient id={gradientId} x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#7C3AED" />
+                  <stop offset="100%" stopColor="#2563EB" />
+                </linearGradient>
+              </defs>
+              <rect x="8" y="8" width="44" height="34" rx="17" fill={`url(#${gradientId})`} />
+              <rect x="28" y="38" width="44" height="34" rx="17" fill={`url(#${gradientId})`} />
+              <text x="92" y="52" fontFamily="Sora, sans-serif" fontSize="38" fontWeight="700" letterSpacing="1.5" fill="#FBFAFC">SOFTIE</text>
+            </svg>
             <p className="max-w-sm font-inter text-sm leading-relaxed text-white/55">
               Building digital experiences that feel alive. From idea to
               deployment, we craft apps that are fast, scalable, and surprisingly

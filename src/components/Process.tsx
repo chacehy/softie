@@ -111,11 +111,12 @@ export function Process() {
           {steps.map((step, i) => (
             <motion.li
               key={step.n}
-              initial={{ opacity: 0, y: 26, filter: "blur(6px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              initial={{ opacity: 0, y: 26 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, ease: EASE, delay: i * 0.08 }}
-              className="group rounded-[2rem] border border-[#7C3AED]/10 bg-white/70 p-1.5 backdrop-blur-sm shadow-soft transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-soft-lg"
+              className="group rounded-[2rem] border border-[#7C3AED]/10 bg-white/70 p-1.5 backdrop-blur-sm shadow-soft transition-[box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-soft-lg"
             >
               <div className="rounded-[calc(2rem-0.375rem)] bg-white/80 p-7 bezel-inner md:p-8">
                 <div className="flex items-start gap-5">

@@ -8,7 +8,7 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 
-import React, { useRef, useState } from "react";
+import React, { useId, useRef, useState } from "react";
 
 
 interface NavbarProps {
@@ -87,7 +87,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   return (
     <motion.div
       animate={{
-        backdropFilter: visible ? "blur(10px)" : "none",
+        backdropFilter: visible ? "blur(10px)" : "blur(0px)",
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
@@ -161,7 +161,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
     <motion.div
       animate={{
-        backdropFilter: visible ? "blur(10px)" : "none",
+        backdropFilter: visible ? "blur(10px)" : "blur(0px)",
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
@@ -243,22 +243,21 @@ export const MobileNavToggle = ({
 };
 
 export const NavbarLogo = () => {
+  const id = useId();
+  const gradientId = `logo-g-${id}`;
   return (
-    <a
-      href="#"
-      className="relative z-20 mr-4 flex items-center space-x-3 px-2 py-1 text-sm font-normal"
-    >
-      <div
-        className="w-8 h-8 rounded-full flex items-center justify-center text-white font-sora font-bold text-sm"
-        style={{
-          background: "linear-gradient(90deg, #7C3AED 0%, #2563EB 100%)",
-        }}
-      >
-        S
-      </div>
-      <span className="font-sora text-lg font-bold tracking-tight text-[#161122]">
-        Softie
-      </span>
+    <a href="#" className="relative z-20 mr-4 flex items-center px-2 py-1">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none" className="h-12 w-auto" aria-label="Softie">
+        <defs>
+          <linearGradient id={gradientId} x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#7C3AED" />
+            <stop offset="100%" stopColor="#2563EB" />
+          </linearGradient>
+        </defs>
+        <rect x="8" y="8" width="44" height="34" rx="17" fill={`url(#${gradientId})`} />
+        <rect x="28" y="38" width="44" height="34" rx="17" fill={`url(#${gradientId})`} />
+        <text x="92" y="52" fontFamily="Sora, sans-serif" fontSize="38" fontWeight="700" letterSpacing="1.5" fill="#0E0E0E">SOFTIE</text>
+      </svg>
     </a>
   );
 };
