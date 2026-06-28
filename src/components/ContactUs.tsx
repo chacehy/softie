@@ -235,7 +235,7 @@ export function ContactUs() {
                   className={cn(
                     "w-full px-4 py-3 rounded-xl border border-gray-200",
                     "focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20 focus:border-[#7C3AED]",
-                    "transition-all duration-300 bg-white/80 backdrop-blur-sm"
+                    "transition-[border-color,box-shadow] duration-300 bg-white/80 backdrop-blur-sm"
                   )}
                   placeholder="Enter your name"
                   whileFocus={{ scale: 1.02 }}
@@ -256,7 +256,7 @@ export function ContactUs() {
                   className={cn(
                     "w-full px-4 py-3 rounded-xl border border-gray-200",
                     "focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20 focus:border-[#7C3AED]",
-                    "transition-all duration-300 bg-white/80 backdrop-blur-sm"
+                    "transition-[border-color,box-shadow] duration-300 bg-white/80 backdrop-blur-sm"
                   )}
                   placeholder="Enter your email address"
                   whileFocus={{ scale: 1.02 }}
@@ -277,7 +277,7 @@ export function ContactUs() {
                   className={cn(
                     "w-full px-4 py-3 rounded-xl border border-gray-200",
                     "focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20 focus:border-[#7C3AED]",
-                    "transition-all duration-300 bg-white/80 backdrop-blur-sm resize-none"
+                    "transition-[border-color,box-shadow] duration-300 bg-white/80 backdrop-blur-sm resize-none"
                   )}
                   placeholder="Tell us about your project, ideas, or just say hello..."
                   whileFocus={{ scale: 1.02 }}
@@ -290,8 +290,8 @@ export function ContactUs() {
                 className={cn(
                   "w-full py-4 px-6 rounded-xl font-semibold text-white",
                   "bg-gradient-to-r from-[#7C3AED] to-[#2563EB]",
-                  "hover:shadow-lg hover:scale-105 transition-all duration-300",
-                  "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100",
+                  "hover:shadow-lg transition-[box-shadow] duration-300",
+                  "disabled:opacity-50 disabled:cursor-not-allowed",
                   "relative overflow-hidden"
                 )}
                 whileHover={{ scale: isSubmitting ? 1 : 1.05 }}

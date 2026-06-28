@@ -115,6 +115,13 @@ body {
     50% { transform: translate3d(-5%, 5%, 0) scale(0.95); }
   }
 
+  --animate-blink: blink 1s step-end infinite;
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
   @keyframes float-slow {
     0%, 100% {
       transform: translateY(0px) translateX(0px) rotate(0deg);

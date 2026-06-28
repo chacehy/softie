@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { NavbarDemo } from "@/components/auiNav";
 import { cn } from "@/lib/utils";
 import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
@@ -46,17 +46,16 @@ const Hero = () => {
       {/* ── Main content ── */}
       <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
         {/* Eyebrow */}
-        <motion.div
+        <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#7C3AED]/20 bg-white/70 px-4 py-1.5 backdrop-blur-sm shadow-soft"
+          className="mb-8 flex items-center justify-center gap-1.5 font-mono text-[15px] tracking-[0.18em] text-[#9e9aaa] select-none"
         >
-          <Sparkles className="h-3.5 w-3.5 text-[#7C3AED]" strokeWidth={2} />
-          <span className="font-inter text-[11px] font-medium uppercase tracking-[0.22em] text-[#5b4a73]">
-            Software studio · Code made soft
-          </span>
-        </motion.div>
+          <span className="text-[#7C3AED]/50">&gt;</span>
+          <span>software_studio · code_made_soft</span>
+          <span className="animate-blink text-[#7C3AED]/60">_</span>
+        </motion.p>
 
         {/* Heading — kept centred, elevated */}
         <motion.div
@@ -107,8 +106,8 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: EASE, delay: 0.18 }}
           className="mb-10 max-w-xl text-balance font-inter text-base md:text-lg leading-relaxed text-[#5b5566]"
         >
-          We blend logic and emotion — fast, scalable, surprisingly delightful
-          web and mobile apps, crafted from idea to deployment.
+          Fast, scalable, surprisingly delightful web and mobile apps, crafted
+          from idea to deployment.
         </motion.p>
 
         {/* CTAs — button-in-button primary + ghost */}
@@ -156,8 +155,8 @@ const Hero = () => {
             ))}
           </div>
           <p className="text-left font-inter text-sm text-[#6b6478]">
-            <span className="font-semibold text-[#1a1622]">Trusted by founders</span>
-            <br className="hidden sm:block" /> shipping real products.
+            <span className="font-semibold text-[#1a1622]">4 Algerian founders</span>
+            <br className="hidden sm:block" /> already shipped with us.
           </p>
         </motion.div>
       </div>

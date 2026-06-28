@@ -5,40 +5,40 @@ import { Marquee } from "@/components/ui/marquee"
 
 const reviews = [
   {
-    name: "Sarah Chen",
-    username: "@sarahchen",
-    body: "Professional, friendly, and delivered exactly what we needed.",
-    img: "https://avatar.vercel.sh/sarah",
+    name: "Youcef Benali",
+    username: "CEO, Zidni",
+    body: "Retours clients positifs dès le premier jour. Ils ont cerné exactement ce qu'on voulait.",
+    img: "https://avatar.vercel.sh/youcef",
   },
   {
-    name: "Mike Rodriguez",
-    username: "@mikerod",
-    body: "Amazing communication throughout the project. Highly recommend!",
-    img: "https://avatar.vercel.sh/mike",
+    name: "Amira Hadjadj",
+    username: "Founder, Noor",
+    body: "Didn't expect it to come together this fast. No drama, no excuses. Just results.",
+    img: "https://avatar.vercel.sh/amira",
   },
   {
-    name: "Emma Thompson",
-    username: "@emmathompson",
-    body: "Exceeded our expectations. Great attention to detail.",
-    img: "https://avatar.vercel.sh/emma",
+    name: "Karim Messaoud",
+    username: "CTO, Darna",
+    body: "Code propre, bien structuré, maintenable. Chose vraiment rare. On repart avec eux.",
+    img: "https://avatar.vercel.sh/karim",
   },
   {
-    name: "Alex Kumar",
-    username: "@alexkumar",
-    body: "Reliable and professional. Made our vision come to life.",
-    img: "https://avatar.vercel.sh/alex",
+    name: "Nadia Boudiaf",
+    username: "Product, Baraka",
+    body: "Communication in a different league. Every update was clear, no jargon.",
+    img: "https://avatar.vercel.sh/nadia",
   },
   {
-    name: "Lisa Park",
-    username: "@lisapark",
-    body: "Friendly team, great results. Our customers love it!",
-    img: "https://avatar.vercel.sh/lisa",
+    name: "Sofiane Rahmani",
+    username: "Director, Wakha Studio",
+    body: "Au début j'étais sceptique. Le résultat dépasse ce qu'on avait imaginé.",
+    img: "https://avatar.vercel.sh/sofiane",
   },
   {
-    name: "David Kim",
-    username: "@davidkim",
-    body: "Outstanding service and support. Will definitely work again.",
-    img: "https://avatar.vercel.sh/david",
+    name: "Lina Cherif",
+    username: "CEO, Raha",
+    body: "Felt less like hiring a vendor and more like having a co-founder for the build.",
+    img: "https://avatar.vercel.sh/lina",
   },
 ]
 
@@ -87,7 +87,7 @@ const ReviewCard = ({
           <figcaption className="font-sora text-sm font-semibold text-[#161122]">
             {name}
           </figcaption>
-          <p className="font-inter text-xs font-medium text-[#9a93a8]">
+          <p className="font-inter text-xs text-[#9a93a8]">
             {username}
           </p>
         </div>

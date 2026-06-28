@@ -39,7 +39,7 @@ const steps = [
 export function Process() {
   return (
     <section
-      id="work"
+      id="process"
       className="relative overflow-hidden bg-gradient-to-b from-[#FBFAFC] via-[#F4F0FA] to-[#FBFAFC] py-28 md:py-36"
     >
       <div

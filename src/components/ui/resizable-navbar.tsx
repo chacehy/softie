@@ -91,7 +91,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
-        width: visible ? "40%" : "100%",
+        width: visible ? "48%" : "100%",
         y: visible ? 20 : 0,
       }}
       transition={{
@@ -100,7 +100,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         damping: 50,
       }}
       style={{
-        minWidth: "800px",
+        minWidth: "880px",
       }}
       className={cn(
         "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-white/90 px-4 py-3 lg:flex shadow-sm border border-gray-100",
@@ -161,24 +161,19 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
     <motion.div
       animate={{
-        backdropFilter: visible ? "blur(10px)" : "blur(0px)",
+        backdropFilter: "blur(12px)",
         boxShadow: visible
-          ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
-          : "none",
-        width: visible ? "calc(100% - 2rem)" : "100%",
-        paddingRight: visible ? "16px" : "0px",
-        paddingLeft: visible ? "16px" : "0px",
-        borderRadius: visible ? "4px" : "2rem",
-        y: visible ? 20 : 0,
+          ? "0 4px 24px rgba(124, 58, 237, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04)"
+          : "0 1px 8px rgba(0, 0, 0, 0.04)",
+        y: visible ? 8 : 0,
       }}
       transition={{
         type: "spring",
-        stiffness: 200,
-        damping: 50,
+        stiffness: 260,
+        damping: 40,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-white/90 px-4 py-3 lg:hidden shadow-sm border border-gray-100 my-2",
-        visible && "bg-white shadow-md border-gray-200",
+        "relative z-50 mx-auto flex w-[calc(100%-2rem)] flex-col items-center justify-between rounded-2xl bg-white/95 px-5 py-3 lg:hidden border border-gray-100/80",
         className,
       )}
     >
@@ -213,11 +208,12 @@ export const MobileNavMenu = ({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] dark:bg-neutral-950",
+            "absolute inset-x-0 top-[calc(100%+0.5rem)] z-50 mx-auto flex w-[calc(100%-1rem)] flex-col gap-1 rounded-2xl bg-white/95 px-3 py-4 shadow-[0_8px_40px_rgba(124,58,237,0.1),0_1px_3px_rgba(0,0,0,0.06)] backdrop-blur-xl border border-gray-100/80",
             className,
           )}
         >
@@ -235,10 +231,18 @@ export const MobileNavToggle = ({
   isOpen: boolean;
   onClick: () => void;
 }) => {
-  return isOpen ? (
-    <IconX className="text-gray-700 hover:text-gray-900" onClick={onClick} />
-  ) : (
-    <IconMenu2 className="text-gray-700 hover:text-gray-900" onClick={onClick} />
+  return (
+    <button
+      onClick={onClick}
+      className="relative z-20 grid h-9 w-9 place-items-center rounded-xl bg-gray-50 transition-colors hover:bg-gray-100"
+      aria-label={isOpen ? "Close menu" : "Open menu"}
+    >
+      {isOpen ? (
+        <IconX className="h-[18px] w-[18px] text-gray-700" strokeWidth={2} />
+      ) : (
+        <IconMenu2 className="h-[18px] w-[18px] text-gray-700" strokeWidth={2} />
+      )}
+    </button>
   );
 };
 
