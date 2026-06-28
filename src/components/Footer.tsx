@@ -123,7 +123,7 @@ export function Footer() {
             © {currentYear} Softie. All rights reserved.
           </p>
           <div className="flex items-center gap-6 font-inter text-sm text-white/45">
-            <a href="#" className="transition-colors hover:text-white/80">
+            <a href="/privacy" className="transition-colors hover:text-white/80">
               Privacy
             </a>
             <a href="#" className="transition-colors hover:text-white/80">
