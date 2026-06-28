@@ -47,7 +47,6 @@ export const metadata: Metadata = {
     description:
       "A software studio crafting fast, scalable, surprisingly delightful digital experiences.",
   },
-  icons: { icon: "/icon.svg" },
 };
 
 export default function RootLayout({
