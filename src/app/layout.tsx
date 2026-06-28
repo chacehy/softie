@@ -34,6 +34,13 @@ export const metadata: Metadata = {
     "Algeria",
   ],
   authors: [{ name: "Softie" }],
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.ico", sizes: "48x48" },
+    ],
+  },
   openGraph: {
     type: "website",
     title: "Softie — Code made soft.",
